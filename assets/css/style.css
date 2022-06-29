@@ -1,11 +1,11 @@
 body{
-    background-color:cornsilk;
+    background-color:rgb(4, 47, 120);
     font-family: 'Times New Roman';
 }
 
 .container-main{
     margin: 2%;
-    background-color: burlywood;
+    background-color: rgb(147, 131, 226);
     padding: 1%;
 }
 
