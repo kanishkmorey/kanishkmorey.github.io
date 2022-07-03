@@ -1,12 +1,25 @@
 body{
-    background-color:rgb(4, 47, 120);
+    background-color: black;
+    color: aliceblue;
     font-family: 'Times New Roman';
+}
+
+.container-header{
+    margin: 0%;
+    padding: 0%;
+    background-color: black;
+    color: aliceblue;
+}
+
+.nav-bar{
+    text-align: right;
 }
 
 .container-main{
     margin: 2%;
-    background-color: rgb(147, 131, 226);
+    background-color: black;
     padding: 1%;
+    color: aliceblue;
 }
 
 .center-text{
@@ -17,4 +30,24 @@ body{
     text-align: justify;
     margin: 5%;
     padding: 2%;
+}
+
+a:link {
+    color: green;
+    text-decoration: none;
+}
+  
+a:visited {
+    color: green;
+    text-decoration: none;
+}
+  
+a:hover {
+    color: red;
+    text-decoration: none;
+}
+  
+a:active {
+    color: yellow;
+    text-decoration: none;
 }
