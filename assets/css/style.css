@@ -5,10 +5,11 @@ body{
 }
 
 .container-header{
-    margin: 0%;
+    margin: 1%;
     padding: 0%;
-    background-color: black;
-    color: aliceblue;
+    background-color: rgb(11, 10, 10);
+    color:azure;
+    box-shadow: 3px 3px 7px green;
 }
 
 .nav-bar{
@@ -28,8 +29,7 @@ body{
 
 .container-main-2{
     text-align: justify;
-    margin: 5%;
-    padding: 2%;
+    margin: 2%;
 }
 
 a:link {
