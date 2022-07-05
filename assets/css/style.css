@@ -34,6 +34,14 @@ body{
     margin: 2%;
 }
 
+.container-footer{
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 80%;
+    margin-bottom: 3%;
+    background-color: aqua;
+}
+
 a:link {
     color: green;
     text-decoration: none;
