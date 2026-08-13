@@ -1,0 +1,25 @@
+---
+layout: default
+---
+<!--
+  Used by index.md (which has `layout: home` in its front matter).
+  {% raw %}{{ content }}{% endraw %} below renders whatever markdown you write in index.md's
+  body — this layout just wraps that with a hero section up top and a
+  row of quick links to the rest of the site at the bottom.
+-->
+<section class="hero">
+  <h1>{{ site.title }}</h1>
+  <p class="role">{{ site.role }} &middot; {{ site.location }}</p>
+  <p class="tagline">{{ site.tagline }}</p>
+</section>
+
+<div class="content">
+  {{ content }}
+</div>
+
+<section class="home-links">
+  <a class="button" href="{{ '/resume/' | relative_url }}">Resume</a>
+  <a class="button" href="{{ '/projects/' | relative_url }}">Projects</a>
+  <a class="button" href="{{ '/blog/' | relative_url }}">Blog</a>
+  <a class="button" href="{{ '/reviews/' | relative_url }}">Tool Reviews</a>
+</section>

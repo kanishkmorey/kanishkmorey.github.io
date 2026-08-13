@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<!--
+  Used by every file in _posts/ (each sets `layout: post` in its own front
+  matter). Inside this layout, `page` refers to the specific post being
+  rendered — page.title, page.date, page.tags all come from that post's
+  own front matter, not from _config.yml.
+-->
+<article class="post">
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">
+      {{ page.date | date: "%B %-d, %Y" }}
+      <!-- `date` is a Liquid filter — it formats the raw date into
+           "August 13, 2026" instead of the raw YAML timestamp. -->
+
+      {% if page.tags.size > 0 %}
+        &middot;
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      {% endif %}
+    </p>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+    <!-- the post's actual markdown body, already converted to HTML -->
+  </div>
+</article>

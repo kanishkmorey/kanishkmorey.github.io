@@ -1,0 +1,75 @@
+# ------------------------------------------------------------------
+# Site settings — used throughout the templates via `site.xxx`,
+# e.g. {{ site.title }}. Edit this file, then restart
+# `bundle exec jekyll serve` (it is NOT hot-reloaded).
+# ------------------------------------------------------------------
+
+title: Kanishk Morey
+tagline: "Backend engineer, building things that hold up under load."
+description: >-
+  Personal site of Kanishk Morey, a backend software engineer — resume,
+  project case studies, technical writing, and tool reviews.
+
+# `url` + `baseurl` together form every absolute link Jekyll generates
+# (RSS feed, sitemap, SEO tags, canonical URLs). This is set up as a
+# GitHub Pages *user* site (kanishkmorey.github.io), so it lives at the
+# domain root and `baseurl` stays empty. If you move to a custom domain
+# later, you only ever need to change `url` below — nothing in the
+# templates hardcodes "kanishkmorey.github.io".
+url: "https://kanishkmorey.github.io"
+baseurl: ""
+
+email: your-email@example.com # TODO: replace with your real email
+github_username: kanishkmorey
+linkedin_username: kanishkmorey # TODO: replace, e.g. "kanishkmorey"
+
+# Shown on the home page, under your name.
+role: "Back End Software Engineer"
+location: "Indore, India"
+
+# GoatCounter (https://www.goatcounter.com/) is a lightweight, privacy-friendly
+# analytics tool: no cookies, no personal data, no consent banner needed.
+# Sign up free, then replace this with your own site code (the part before
+# ".goatcounter.com" in the dashboard URL) to start counting pageviews.
+goatcounter_code: "kanishkmorey"
+
+# ------------------------------------------------------------------
+# Build settings
+# ------------------------------------------------------------------
+
+# No theme gem here on purpose — this site is a fully custom, hand-written
+# theme that lives entirely in this repo (_layouts/, _includes/,
+# assets/css/style.css), so everything is visible and editable rather than
+# hidden inside an installed gem like `minima`.
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Collections turn a folder into a first-class content type, the same way
+# `_posts` already works. `output: true` tells Jekyll to actually build a
+# page for each file in the folder (without it, the files would just be
+# data you could loop over, but no page would be generated for them).
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+  reviews:
+    output: true
+    permalink: /reviews/:path/
+
+# All three plugins below are on GitHub Pages' supported plugin list
+# (https://pages.github.com/versions/), so this would build fine on
+# classic GitHub Pages too — this repo just also ships a GitHub Actions
+# workflow (.github/workflows/pages.yml) so the exact Jekyll/gem versions
+# in the Gemfile are the ones that actually get deployed.
+plugins:
+  - jekyll-feed # generates /feed.xml (RSS) from your posts
+  - jekyll-seo-tag # generates <title>/<meta>/Open Graph tags in <head>
+  - jekyll-sitemap # generates /sitemap.xml for search engines
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - NOTES.md
+  - GUIDE.md
+  - vendor

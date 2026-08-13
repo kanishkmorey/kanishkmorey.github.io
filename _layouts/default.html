@@ -1,0 +1,22 @@
+<!--
+  default.html is the base layout almost every other layout builds on top
+  of (each one sets `layout: default` in its own front matter at the top
+  of the file). It owns the outer <html> skeleton — <head>, header, footer —
+  and drops whatever that other layout produced in via {% raw %}{{ content }}{% endraw %}.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+
+    <main class="site-main">
+      {{ content }}
+      <!-- ^ this is where the layout that sets `layout: default` renders
+           its own content. For home.html, that's the hero + home links.
+           For page.html, that's just the page title + markdown body. -->
+    </main>
+
+    {% include footer.html %}
+  </body>
+</html>

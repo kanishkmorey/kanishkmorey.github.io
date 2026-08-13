@@ -1,0 +1,241 @@
+/* ------------------------------------------------------------------
+   Design tokens. Dark is the default palette; the media query below
+   swaps them for a light palette when the visitor's OS is set to light
+   mode. Nothing else in this file needs to know about themes — every
+   rule below just uses these variables.
+------------------------------------------------------------------ */
+:root {
+  --bg: #0d1117;
+  --bg-elevated: #131a24;
+  --text: #e6edf3;
+  --text-muted: #9aa4b2;
+  --accent: #5eead4;
+  --accent-strong: #2dd4bf;
+  --border: #232b36;
+
+  /* System font stacks only — no Google Fonts/CDN, so there's no extra
+     network request and no flash-of-invisible-text while a webfont loads. */
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --bg-elevated: #f5f7fa;
+    --text: #0d1117;
+    --text-muted: #57606c;
+    --accent: #0f766e;
+    --accent-strong: #0d9488;
+    --border: #e2e8f0;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Base
+------------------------------------------------------------------ */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 17px;
+
+  /* "Sticky footer" layout: body is a full-viewport-height column, and
+     .site-main (below) grows to fill whatever space the header/footer
+     don't use. On short pages that pushes the footer to the bottom of
+     the screen; on long pages it just sits at the end after the content,
+     the same as any normal footer would. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 {
+  font-family: var(--font-mono);
+  line-height: 1.25;
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  background: var(--bg-elevated);
+  border-radius: 4px;
+}
+code { padding: 0.15em 0.4em; }
+pre { padding: 1em; overflow-x: auto; }
+pre code { padding: 0; background: none; }
+
+/* ------------------------------------------------------------------
+   Header / nav
+------------------------------------------------------------------ */
+.site-header {
+  border-bottom: 1px solid var(--border);
+}
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+}
+.site-title {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text);
+}
+.site-nav a {
+  color: var(--text-muted);
+  margin-left: 1.25rem;
+  font-size: 0.95rem;
+}
+.site-nav a:first-child { margin-left: 0; }
+.site-nav a.active,
+.site-nav a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------------
+   Main / hero
+------------------------------------------------------------------ */
+.site-main {
+  flex: 1; /* grow to fill leftover vertical space, see body's flex rules above */
+  padding: 2.5rem 0 4rem;
+}
+.site-main > * { max-width: 720px; margin-left: auto; margin-right: auto; padding: 0 1.5rem; }
+
+.hero h1 { margin-bottom: 0.25rem; }
+.hero .role { color: var(--text-muted); margin: 0; }
+.hero .tagline { margin-top: 0.75rem; font-size: 1.1rem; }
+
+.home-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.button {
+  display: inline-block;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+.button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ------------------------------------------------------------------
+   Listing pages (blog / projects / reviews index)
+------------------------------------------------------------------ */
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+.post-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.post-list a { color: var(--text); font-weight: 500; }
+.post-list .meta { color: var(--text-muted); font-size: 0.9rem; display: block; margin-top: 0.2rem; }
+
+.muted { color: var(--text-muted); }
+
+/* ------------------------------------------------------------------
+   Post / project / review pages
+------------------------------------------------------------------ */
+.post-header .meta,
+.project .summary,
+.review .verdict {
+  color: var(--text-muted);
+}
+.review .verdict {
+  font-family: var(--font-mono);
+  border-left: 3px solid var(--accent);
+  padding-left: 0.75rem;
+}
+
+.tag, .tags li {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent-strong);
+  background: var(--bg-elevated);
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin-right: 0.3em;
+}
+.tags { list-style: none; padding: 0; margin: 0.75rem 0; }
+.tags li { display: inline-block; margin-bottom: 0.3em; }
+
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.pros h2 { color: var(--accent-strong); }
+.cons h2 { color: var(--text-muted); }
+@media (max-width: 600px) {
+  .pros-cons { grid-template-columns: 1fr; }
+}
+
+/* ------------------------------------------------------------------
+   Resume
+------------------------------------------------------------------ */
+.resume-header .button { margin-top: 0.75rem; }
+.resume-entry { margin-bottom: 1.25rem; }
+.resume-entry .period { color: var(--text-muted); font-size: 0.9rem; margin: 0.1rem 0 0.5rem; }
+.skills {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.skills li {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.2em 0.6em;
+}
+
+/* Print the resume cleanly if someone hits Ctrl/Cmd+P instead of using
+   the PDF download link. */
+@media print {
+  .site-header, .site-footer, .resume-header .button { display: none; }
+  body { background: #fff; color: #000; }
+}
+
+/* ------------------------------------------------------------------
+   Footer
+------------------------------------------------------------------ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}

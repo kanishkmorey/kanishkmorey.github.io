@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<!--
+  Used by files in _reviews/ (each sets `layout: review`). No star rating
+  system, per preference — just a one-line verdict plus written pros/cons.
+  `page.pros` / `page.cons` are plain YAML lists in the review's front
+  matter; leave either one out and that section just won't render.
+-->
+<article class="review">
+  <header>
+    <h1>{{ page.title }}</h1>
+    {% if page.verdict %}<p class="verdict">{{ page.verdict }}</p>{% endif %}
+  </header>
+
+  <div class="review-content">
+    {{ content }}
+  </div>
+
+  {% if page.pros or page.cons %}
+    <div class="pros-cons">
+      {% if page.pros %}
+        <div class="pros">
+          <h2>Pros</h2>
+          <ul>
+            {% for item in page.pros %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if page.cons %}
+        <div class="cons">
+          <h2>Cons</h2>
+          <ul>
+            {% for item in page.cons %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+</article>

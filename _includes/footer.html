@@ -1,0 +1,24 @@
+<!--
+  Footer: just a contact email link (no contact form, per preference) and
+  a couple of profile links. `site.email`, `site.github_username`, and
+  `site.linkedin_username` all come from _config.yml — edit them there,
+  not here, and every page that includes this footer updates at once.
+-->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      &middot;
+      <a href="https://github.com/{{ site.github_username }}">GitHub</a>
+      &middot;
+      <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">LinkedIn</a>
+    </p>
+    <p class="muted">
+      &copy; {{ site.time | date: '%Y' }} {{ site.title }}
+      <!-- `site.time` is the time the site was built, and the `date` filter
+           formats it — here just as a 4-digit year. -->
+    </p>
+  </div>
+</footer>
+
+{% include analytics.html %}

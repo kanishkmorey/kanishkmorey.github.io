@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<!--
+  Used by files in _projects/ (each sets `layout: project`). These are full
+  individual pages per project, not just list cards — the listing at
+  /projects/ (projects.md) just links here. Fields like `stack`,
+  `repo_url`, `demo_url` are optional front matter you can add per project;
+  the conditional checks below just skip anything you didn't set.
+-->
+<article class="project">
+  <header>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}<p class="summary">{{ page.summary }}</p>{% endif %}
+
+    {% if page.stack %}
+      <ul class="tags">
+        {% for tech in page.stack %}
+          <li>{{ tech }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <p class="links">
+      {% if page.repo_url %}<a href="{{ page.repo_url }}">Source</a>{% endif %}
+      {% if page.demo_url %} &middot; <a href="{{ page.demo_url }}">Live demo</a>{% endif %}
+    </p>
+  </header>
+
+  <div class="project-content">
+    {{ content }}
+  </div>
+</article>

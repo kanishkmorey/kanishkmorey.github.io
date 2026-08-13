@@ -1,0 +1,18 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- The seo tag below comes from the jekyll-seo-tag plugin. It looks at
+       _config.yml (site.title, site.description, ...) and this page's own
+       front matter (title, description) and prints out <title>, a meta
+       description, and Open Graph/Twitter card tags automatically — no
+       need to hand-write them on every page. -->
+  {% seo %}
+
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <!-- `relative_url` prepends site.baseurl to a path. It's empty right now
+       (root site), but writing links this way instead of hardcoding "/assets/..."
+       means nothing breaks if that ever changes. -->
+
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ '/feed.xml' | relative_url }}">
+</head>

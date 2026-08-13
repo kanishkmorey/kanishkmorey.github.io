@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+
+    <!--
+      One <a> per nav link. `page.url` is the path of whatever page is
+      currently being rendered, so comparing it to each href lets us add
+      an "active" class and highlight where you are. To add a new section
+      later (say, a "Talks" page), copy one of these lines and point it at
+      the new page's permalink.
+    -->
+    <nav class="site-nav">
+      <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
+      <a href="{{ '/resume/' | relative_url }}" {% if page.url == '/resume/' %}class="active"{% endif %}>Resume</a>
+      <a href="{{ '/projects/' | relative_url }}" {% if page.url == '/projects/' %}class="active"{% endif %}>Projects</a>
+      <a href="{{ '/blog/' | relative_url }}" {% if page.url == '/blog/' %}class="active"{% endif %}>Blog</a>
+      <a href="{{ '/reviews/' | relative_url }}" {% if page.url == '/reviews/' %}class="active"{% endif %}>Reviews</a>
+    </nav>
+  </div>
+</header>
