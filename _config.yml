@@ -8,7 +8,7 @@ title: Kanishk Morey
 tagline: "Backend engineer, building things that hold up under load."
 description: >-
   Personal site of Kanishk Morey, a backend software engineer — resume,
-  project case studies, technical writing, and tool reviews.
+  project case studies, and writing.
 
 # `url` + `baseurl` together form every absolute link Jekyll generates
 # (RSS feed, sitemap, SEO tags, canonical URLs). This is set up as a
@@ -24,7 +24,7 @@ github_username: kanishkmorey
 linkedin_username: kanishkmorey
 
 # Shown on the home page, under your name.
-role: "Back End Software Engineer"
+role: "Software Engineer (Backend)"
 location: "Indore, India"
 
 # GoatCounter (https://www.goatcounter.com/) is a lightweight, privacy-friendly
@@ -43,7 +43,7 @@ goatcounter_code: "kanishkmorey"
 # hidden inside an installed gem like `minima`.
 
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title/
+permalink: /writing/:year/:month/:day/:title/
 
 # Collections turn a folder into a first-class content type, the same way
 # `_posts` already works. `output: true` tells Jekyll to actually build a
@@ -53,9 +53,6 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
-  reviews:
-    output: true
-    permalink: /reviews/:path/
 
 # All three plugins below are on GitHub Pages' supported plugin list
 # (https://pages.github.com/versions/), so this would build fine on

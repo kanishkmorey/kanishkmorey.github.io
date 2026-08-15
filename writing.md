@@ -1,11 +1,13 @@
 ---
 layout: page
-title: Blog
-permalink: /blog/
+title: Writing
+permalink: /writing/
 ---
 
 <!-- `site.posts` is every file in _posts/, newest first, automatically —
-     Jekyll builds this list for you, you don't maintain it by hand. -->
+     Jekyll builds this list for you, you don't maintain it by hand. This
+     covers everything: articles, notes, and tool reviews alike, all in
+     one place. -->
 <ul class="post-list">
 {% for post in site.posts %}
   <li>
@@ -16,5 +18,5 @@ permalink: /blog/
 </ul>
 
 {% if site.posts.size == 0 %}
-  <p class="muted">No posts yet — check back soon.</p>
+  <p class="muted">No writing yet — check back soon.</p>
 {% endif %}

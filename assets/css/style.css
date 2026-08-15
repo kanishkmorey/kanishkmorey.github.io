@@ -147,7 +147,7 @@ pre code { padding: 0; background: none; }
 }
 
 /* ------------------------------------------------------------------
-   Listing pages (blog / projects / reviews index)
+   Listing pages (writing / projects index)
 ------------------------------------------------------------------ */
 .post-list {
   list-style: none;
@@ -163,14 +163,14 @@ pre code { padding: 0; background: none; }
 .muted { color: var(--text-muted); }
 
 /* ------------------------------------------------------------------
-   Post / project / review pages
+   Post / project pages
 ------------------------------------------------------------------ */
 .post-header .meta,
 .project .summary,
-.review .verdict {
+.post .verdict {
   color: var(--text-muted);
 }
-.review .verdict {
+.post .verdict {
   font-family: var(--font-mono);
   border-left: 3px solid var(--accent);
   padding-left: 0.75rem;

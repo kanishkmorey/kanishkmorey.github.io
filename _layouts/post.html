@@ -3,9 +3,14 @@ layout: default
 ---
 <!--
   Used by every file in _posts/ (each sets `layout: post` in its own front
-  matter). Inside this layout, `page` refers to the specific post being
-  rendered — page.title, page.date, page.tags all come from that post's
-  own front matter, not from _config.yml.
+  matter). This is the one layout for everything you write — articles,
+  notes, and tool reviews alike. Inside this layout, `page` refers to the
+  specific post being rendered — page.title, page.date, page.tags all come
+  from that post's own front matter, not from _config.yml.
+
+  Tool reviews are just posts that also set `verdict` / `pros` / `cons` in
+  their front matter — those render automatically below if present, and
+  are simply skipped for a regular post that doesn't set them.
 -->
 <article class="post">
   <header class="post-header">
@@ -22,10 +27,33 @@ layout: default
         {% endfor %}
       {% endif %}
     </p>
+    {% if page.verdict %}<p class="verdict">{{ page.verdict }}</p>{% endif %}
   </header>
 
   <div class="post-content">
     {{ content }}
     <!-- the post's actual markdown body, already converted to HTML -->
   </div>
+
+  {% if page.pros or page.cons %}
+    <div class="pros-cons">
+      {% if page.pros %}
+        <div class="pros">
+          <h2>Pros</h2>
+          <ul>
+            {% for item in page.pros %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if page.cons %}
+        <div class="cons">
+          <h2>Cons</h2>
+          <ul>
+            {% for item in page.cons %}<li>{{ item }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
 </article>

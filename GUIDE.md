@@ -13,7 +13,12 @@ Jekyll which template to use and pass it data. Everything *below* the second
 
 ---
 
-## Adding a blog post
+## Adding a piece of writing
+
+Everything you write — articles, notes, and tool reviews alike — lives in
+one place: the `writing` section. There's no separate collection for tool
+reviews; a review is just a post that sets a couple of extra front matter
+fields.
 
 1. Create a new file in `_posts/` named exactly:
    `YYYY-MM-DD-a-short-title.markdown`
@@ -31,17 +36,35 @@ Jekyll which template to use and pass it data. Everything *below* the second
    ---
    ```
 
-   - `layout` — always `post` for blog posts.
-   - `title` — shown as the page's `<h1>` and in the `/blog/` listing.
+   - `layout` — always `post`, whether it's an article or a tool review.
+   - `title` — shown as the page's `<h1>` and in the `/writing/` listing.
    - `date` — controls sort order and the URL. Must match (or come after)
      the date in the filename.
    - `tags` — optional. Shown on the post itself, but there's no
      tag-browsing page yet (deliberately — not worth building until there
-     are enough posts to need it).
+     are enough posts to need it). Use a tag like `[review]` if you want to
+     mark a post as a tool review at a glance.
 
-3. Write the post body in Markdown below the front matter.
-4. It automatically shows up on `/blog/` — that page loops over every file
-   in `_posts/`, you don't add it anywhere by hand.
+   If the post is a tool review, add these optional fields too — they
+   render automatically below the body (see `_layouts/post.html`), and are
+   simply skipped if you leave them out:
+
+   ```yaml
+   verdict: "One-line takeaway shown right under the title."
+   pros:
+     - "Point one"
+     - "Point two"
+   cons:
+     - "Point one"
+     - "Point two"
+   ```
+
+   No star ratings, by design — just written opinions. Leave either list
+   out if you don't need it.
+
+3. Write the body in Markdown below the front matter.
+4. It automatically shows up on `/writing/` — that page loops over every
+   file in `_posts/`, you don't add it anywhere by hand.
 
 ---
 
@@ -77,38 +100,6 @@ Jekyll which template to use and pass it data. Everything *below* the second
    structure, but that's just a suggestion, not enforced by the template.
 
 4. Shows up automatically on `/projects/`.
-
----
-
-## Adding a tool review
-
-1. Create a new file in `_reviews/`, e.g. `_reviews/postgresql.md`.
-   URL becomes `/reviews/postgresql/`.
-
-2. Front matter:
-
-   ```yaml
-   ---
-   layout: review
-   title: "Tool Review: PostgreSQL"
-   verdict: "One-line takeaway shown right under the title."
-   pros:
-     - "Point one"
-     - "Point two"
-   cons:
-     - "Point one"
-     - "Point two"
-   date: 2026-08-20
-   ---
-   ```
-
-   - `verdict` — optional one-liner, styled distinctly at the top.
-   - `pros` / `cons` — optional lists, rendered as two columns at the
-     bottom of the page. No star ratings, by design — just written
-     opinions. Leave either list out if you don't need it.
-
-3. Write your actual review as Markdown in the body.
-4. Shows up automatically on `/reviews/`.
 
 ---
 
@@ -198,7 +189,7 @@ This is the one case that needs a bit more than a content file:
 1. Decide if it's a *collection* (many individual pages, like projects) or
    a *single page* (like the resume).
 2. For a collection: add a new entry under `collections:` in `_config.yml`
-   (copy the `projects:`/`reviews:` pattern), then create a matching
+   (copy the `projects:` pattern), then create a matching
    `_layouts/<name>.html` (copy `_layouts/project.html` as a starting
    point) and a `<name>/_<something>` folder for the content files.
 3. For a single page: just add a new `.md` file at the root with its own
