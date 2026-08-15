@@ -5,8 +5,15 @@
 layout: home
 ---
 
-I'm a backend engineer based in Indore, India, about 14 months into my career
-so far. Most of what I work on is APIs, databases, and the unglamorous
-plumbing that keeps services running — this site is where I write about
-that, show what I've built, and say what I actually think about the tools
-I use day to day.
+I'm a backend engineer at Walkover Web Solution in Indore, currently
+working on 36Blocks, an authentication-as-a-service product. I've been
+doing this for a little over a year now. Most of my day is spent on
+backend work: building features, fixing bugs, and dealing with whatever
+comes up.
+
+I got into this because I've always liked knowing how things work
+underneath, not just using software, but understanding why it behaves
+the way it does. Backend felt like the natural place to end up.
+
+This site is where I write about what I'm building, what breaks along
+the way, and what I actually think about the tools I use.
