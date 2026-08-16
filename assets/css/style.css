@@ -110,6 +110,19 @@ pre code { padding: 0; background: none; }
   color: var(--accent);
   text-decoration: none;
 }
+.nav-count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  border-radius: 999px;
+  padding: 0.05em 0.5em;
+  margin-left: 0.35em;
+}
+.site-nav a.active .nav-count,
+.site-nav a:hover .nav-count {
+  color: var(--accent);
+}
 
 /* ------------------------------------------------------------------
    Main / hero
